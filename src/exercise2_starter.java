@@ -56,7 +56,10 @@ public class exercise2_starter {
         
         // PART 2: READ DATA
         // TODO: Create DataInputStream for "Exercise17_02.dat"
-        
+        try(DataInputStream input = new DataInputStream(
+                new FileInputStream("Exercise17_02.dat"))) {
+
+        }
         
         // TODO: Read the array of integers
         // Hint: Create a new array and use readInt() five times
