@@ -56,10 +56,15 @@ public class exercise2_starter {
         
         // PART 2: READ DATA
         // TODO: Create DataInputStream for "Exercise17_02.dat"
+        int[] readNumbers = new int[5];
         try(DataInputStream input = new DataInputStream(
                 new FileInputStream("Exercise17_02.dat"))) {
-            int[] nums = input.readInt(numbers);
-            Date oldTime = input.readLong("s");
+         for (int i = 0; i < numbers.length; i++) {
+             readNumbers[i] = input.readInt();
+         }
+         long date = input.readLong();
+         Date newDate = new Date(date);
+         double newDouble = input.readDouble();
         }
         
         // TODO: Read the array of integers
@@ -79,6 +84,9 @@ public class exercise2_starter {
         // TODO: Display all the data you read
         System.out.println("\nData read from Exercise17_02.dat:");
         // Display array, date, and double value
+        System.out.println(readNumbers);
+        System.out.println(newDate);
+        System.out.println(newDouble);
         
     }
 }
