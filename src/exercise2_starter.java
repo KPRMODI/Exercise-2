@@ -58,7 +58,8 @@ public class exercise2_starter {
         // TODO: Create DataInputStream for "Exercise17_02.dat"
         try(DataInputStream input = new DataInputStream(
                 new FileInputStream("Exercise17_02.dat"))) {
-
+            int[] nums = input.readInt(numbers);
+            Date oldTime = input.readLong("s");
         }
         
         // TODO: Read the array of integers
