@@ -33,7 +33,7 @@ public class exercise2_starter {
             for (int num: numbers) {
                 output.writeInt(num);
             }
-            output.writeLong(currentTime.getDate());
+            output.writeLong(currentTime.getTime());
             output.writeDouble(value);
         }
         
@@ -57,14 +57,16 @@ public class exercise2_starter {
         // PART 2: READ DATA
         // TODO: Create DataInputStream for "Exercise17_02.dat"
         int[] readNumbers = new int[5];
+        Date readDate = new Date();
+        double readDouble;
+
+        
         try(DataInputStream input = new DataInputStream(
                 new FileInputStream("Exercise17_02.dat"))) {
          for (int i = 0; i < numbers.length; i++) {
              readNumbers[i] = input.readInt();
          }
-         long date = input.readLong();
-         Date newDate = new Date(date);
-         double newDouble = input.readDouble();
+
         }
         
         // TODO: Read the array of integers
