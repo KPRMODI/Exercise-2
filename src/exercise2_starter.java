@@ -15,7 +15,7 @@ import java.util.Date;
  * - In the same program, read the data back
  * - Display all values to verify they were stored correctly
  * 
- * @author Your Name
+ * @author Karan Modi
  */
 public class exercise2_starter {
     
@@ -66,7 +66,8 @@ public class exercise2_starter {
          for (int i = 0; i < numbers.length; i++) {
              readNumbers[i] = input.readInt();
          }
-
+         readDate = input.readInt(); //maybe newdate
+        readDouble = input.readDouble();
         }
         
         // TODO: Read the array of integers
@@ -86,9 +87,13 @@ public class exercise2_starter {
         // TODO: Display all the data you read
         System.out.println("\nData read from Exercise17_02.dat:");
         // Display array, date, and double value
-        System.out.println(readNumbers);
-        System.out.println(newDate);
-        System.out.println(newDouble);
+        System.out.print("numbers ");
+        for (i = 0; i < readNumbers.length; i++){
+            System.out.print(readNumbers[i]);
+        }
+        System.out.println();
+        System.out.println("date" + newDate);
+        System.out.println(" double" + newDouble);
         
     }
 }
