@@ -20,80 +20,82 @@ import java.util.Date;
 public class exercise2_starter {
     
     public static void main(String[] args) throws IOException {
-        
+
         // Data to write
         int[] numbers = {1, 2, 3, 4, 5};
         Date currentTime = new Date();
         double value = 5.5;
-        
+
         // PART 1: WRITE DATA
         // TODO: Create DataOutputStream for "Exercise17_02.dat"
-        try(DataOutputStream output = new DataOutputStream(
+        try (DataOutputStream output = new DataOutputStream(
                 new FileOutputStream("Exercise17_02.dat"))) {
-            for (int num: numbers) {
+            for (int num : numbers) {
                 output.writeInt(num);
             }
             output.writeLong(currentTime.getTime());
             output.writeDouble(value);
         }
-        
+
         // TODO: Write the array of integers
         // Hint: Loop through the array and use writeInt() for each element
-        
-        
+
+
         // TODO: Write the Date object
         // Hint: Use writeLong() to write currentTime.getTime()
-        
-        
+
+
         // TODO: Write the double value
-        
-        
+
+
         // TODO: Close the output stream (or use try-with-resources)
-        
-        
+
+
         System.out.println("Data written to Exercise17_02.dat");
-        
-        
+
+
         // PART 2: READ DATA
         // TODO: Create DataInputStream for "Exercise17_02.dat"
-        int[] readNumbers = new int[5];
-        Date readDate = new Date();
+        int[] readNumbers = new int[5]; //define variables for reading input
+        Date readDate;
         double readDouble;
 
-        
-        try(DataInputStream input = new DataInputStream(
+
+        int i;
+        try (DataInputStream input = new DataInputStream(
                 new FileInputStream("Exercise17_02.dat"))) {
-         for (int i = 0; i < numbers.length; i++) {
-             readNumbers[i] = input.readInt();
-         }
-         readDate = input.readInt(); //maybe newdate
-        readDouble = input.readDouble();
+            for (i = 0; i < numbers.length; i++) {
+                readNumbers[i] = input.readInt();
+            }
+            readDate = new Date(input.readLong());
+            readDouble = input.readDouble();
         }
-        
+
         // TODO: Read the array of integers
         // Hint: Create a new array and use readInt() five times
-        
-        
+
+
         // TODO: Read the Date object
         // Hint: Use readLong() and create new Date with that value
-        
-        
+
+
         // TODO: Read the double value
-        
-        
+
+
         // TODO: Close the input stream (or use try-with-resources)
-        
-        
+
+
         // TODO: Display all the data you read
         System.out.println("\nData read from Exercise17_02.dat:");
         // Display array, date, and double value
-        System.out.print("numbers ");
-        for (i = 0; i < readNumbers.length; i++){
+        System.out.print("Numbers: ");
+        for (i = 0; i < readNumbers.length; i++) {
             System.out.print(readNumbers[i]);
         }
         System.out.println();
-        System.out.println("date" + newDate);
-        System.out.println(" double" + newDouble);
-        
+
+        System.out.println("Date: " + readDate);
+
+        System.out.println("Double: " + readDouble);
     }
 }
